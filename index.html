@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swaranaad Dhol Tasha Hubli | Hubli's First Dhol Tasha Pathak</title>
+    <meta name="description" content="Swaranaad Dhol Tasha Hubli - Hubli's First Dhol Tasha Pathak since 2019.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Yatra+One&family=Montserrat:wght@300;400;600;700;800&family=Tiro+Devanagari+Marathi&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS CSS for crazy animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        saffron: '#FF671F',
+                        'saffron-dark': '#CC5218',
+                        'deep-orange': '#E65100',
+                        vermilion: '#E34234',
+                        maroon: '#800000',
+                        charcoal: '#1A1A1A',
+                        'accent-gold': '#CFB53B',
+                        'warm-cream': '#FDFBF7'
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        indian: ['"Yatra One"', 'cursive'],
+                        marathi: ['"Tiro Devanagari Marathi"', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-black text-warm-cream font-sans overflow-x-hidden antialiased">
+
+    <!-- Splash Screen Intro -->
+    <div id="splash-screen" class="fixed inset-0 bg-black z-[100] flex flex-col items-center justify-center transition-opacity duration-1000">
+        <img src="assets/images/klogo.png" alt="Swaranaad Intro" class="w-48 md:w-64 animate-splash-pulse drop-shadow-[0_0_30px_rgba(255,103,31,0.6)]" onerror="this.outerHTML='<h1 class=\'text-5xl font-indian text-saffron animate-splash-pulse\'>Swaranaad</h1>'">
+    </div>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/919738641082" target="_blank" class="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg z-50 hover:bg-green-600 transition-transform transform hover:scale-110 flex items-center justify-center">
+        <i class="fab fa-whatsapp text-3xl"></i>
+    </a>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-40 transition-all duration-300 py-4 px-6 md:px-12">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <!-- Top Left Logo -->
+            <a href="#" class="z-50 relative flex items-center">
+                <img src="assets/images/logo.png" alt="Swaranaad Logo" class="h-12 w-auto object-contain">
+            </a>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden lg:flex space-x-6 items-center">
+                <a href="#home" class="nav-link text-sm uppercase tracking-wider hover:text-saffron transition-colors">Home</a>
+                <a href="#legacy" class="nav-link text-sm uppercase tracking-wider hover:text-saffron transition-colors">Our Story</a>
+                <a href="#ganesh-chaturthi" class="nav-link text-sm uppercase tracking-wider hover:text-saffron transition-colors">Ganesh Chaturthi</a>
+                <a href="#instruments" class="nav-link text-sm uppercase tracking-wider hover:text-saffron transition-colors">Dhol & Tasha</a>
+                <a href="#pathak" class="nav-link text-sm uppercase tracking-wider hover:text-saffron transition-colors">Our Pathak</a>
+                <a href="#performances" class="nav-link text-sm uppercase tracking-wider hover:text-saffron transition-colors">Archive</a>
+                <a href="#contact" class="nav-link text-sm uppercase tracking-wider hover:text-saffron transition-colors">Contact</a>
+                <a href="#booking" class="bg-saffron text-white px-6 py-2 rounded uppercase text-sm font-semibold tracking-widest hover:bg-white hover:text-saffron transition-all duration-300">Book Now</a>
+            </div>
+
+            <!-- Mobile Hamburger -->
+            <button id="menu-btn" class="lg:hidden text-white z-50 relative focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Drawer -->
+        <div id="mobile-menu" class="fixed inset-0 bg-charcoal bg-opacity-95 backdrop-blur-md z-40 hidden flex-col items-center justify-center space-y-6">
+            <a href="#home" class="mobile-link text-xl font-indian tracking-widest hover:text-saffron">Home</a>
+            <a href="#legacy" class="mobile-link text-xl font-indian tracking-widest hover:text-saffron">Our Story</a>
+            <a href="#ganesh-chaturthi" class="mobile-link text-xl font-indian tracking-widest hover:text-saffron">Ganesh Chaturthi</a>
+            <a href="#instruments" class="mobile-link text-xl font-indian tracking-widest hover:text-saffron">Dhol & Tasha</a>
+            <a href="#pathak" class="mobile-link text-xl font-indian tracking-widest hover:text-saffron">Our Pathak</a>
+            <a href="#performances" class="mobile-link text-xl font-indian tracking-widest hover:text-saffron">Archive</a>
+            <a href="#contact" class="mobile-link text-xl font-indian tracking-widest hover:text-saffron">Contact</a>
+            <a href="#booking" class="mobile-link bg-saffron text-white px-8 py-3 rounded uppercase text-lg font-bold tracking-widest mt-4">Book Now</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+        <!-- 3D Background Elements -->
+        <div class="absolute inset-0 z-0 bg-gradient-to-b from-black/90 via-maroon/30 to-black/95">
+            <!-- 3D Rotating Rings -->
+            <div class="absolute inset-0 flex items-center justify-center perspective-1000 opacity-40">
+                <div class="w-[300px] h-[300px] sm:w-[600px] sm:h-[600px] border border-saffron/30 rounded-full absolute animate-spin-3d shadow-[0_0_50px_rgba(255,103,31,0.2)]"></div>
+                <div class="w-[200px] h-[200px] sm:w-[450px] sm:h-[450px] border-2 border-vermilion/40 rounded-full absolute animate-spin-3d-reverse shadow-[0_0_50px_rgba(227,66,52,0.2)]"></div>
+                <div class="w-[100px] h-[100px] sm:w-[300px] sm:h-[300px] border border-accent-gold/40 rounded-full absolute animate-spin-3d-fast shadow-[0_0_30px_rgba(207,181,59,0.3)]"></div>
+            </div>
+            <div class="particles-container absolute inset-0"></div>
+        </div>
+
+        <!-- Foreground -->
+        <div class="relative z-10 text-center px-4 max-w-5xl mx-auto flex flex-col items-center mt-16">
+            <!-- K Logo with floating animation -->
+            <img src="assets/images/klogo.png" alt="Swaranaad K Logo" class="w-[85%] sm:w-2/3 md:w-1/2 max-w-lg mx-auto object-contain floating-klogo drop-shadow-[0_0_40px_rgba(255,103,31,0.7)]" onerror="this.outerHTML='<div class=\'w-64 h-64 bg-gray-800 border-2 border-dashed border-saffron flex items-center justify-center floating-klogo\'><span class=\'text-gray-400\'>klogo.png Missing</span></div>'">
+            
+            <p class="text-saffron font-bold tracking-[0.4em] mt-8 text-sm md:text-lg drop-shadow-md" data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="500">SINCE 2019</p>
+            <h2 class="text-saffron text-xl md:text-3xl font-marathi mt-6 tracking-widest drop-shadow-lg" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="800">गणपती बाप्पा मोरया 🚩</h2>
+            
+            <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1000">
+                <a href="#booking" class="bg-saffron text-white px-10 py-4 rounded uppercase text-sm font-bold tracking-widest hover:bg-deep-orange transition-colors shadow-[0_0_20px_rgba(255,103,31,0.5)]">Book For Ganesh Chaturthi</a>
+            </div>
+        </div>
+
+        <!-- Scroll Down Text -->
+        <div class="absolute bottom-10 left-0 right-0 flex justify-center z-10">
+            <a href="#intro" class="text-center animate-bounce cursor-pointer flex flex-col items-center group">
+                <span class="text-xs uppercase font-bold tracking-[0.3em] text-gray-400 group-hover:text-white transition-colors">Scroll Down</span>
+                <i class="fas fa-chevron-down text-saffron mt-2 text-xl group-hover:scale-125 transition-transform"></i>
+            </a>
+        </div>
+    </header>
+
+    <!-- Intro / Brand Statement -->
+    <section id="intro" class="py-24 bg-black relative">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-4xl md:text-6xl font-indian mb-8 text-white" data-aos="flip-up" data-aos-duration="1500">THE RHYTHM OF GANPATI.</h2>
+            <p class="text-lg md:text-xl text-gray-400 mb-8 leading-relaxed font-light" data-aos="zoom-in-up" data-aos-duration="1200">
+                Since 2019, Swaranaad Dhol Tasha Hubli has been a traditional Maharashtrian-style Dhol-Tasha Pathak dedicated to bringing the power, discipline and cultural spirit of Dhol-Tasha to Ganesh Chaturthi celebrations in Hubli.
+            </p>
+            <p class="text-2xl md:text-4xl font-semibold text-saffron italic" data-aos="zoom-in" data-aos-duration="1500">
+                "We don't just play the beat. We become the beat."
+            </p>
+        </div>
+    </section>
+
+    <!-- Legacy Section -->
+    <section id="legacy" class="py-24 bg-gradient-to-b from-black to-charcoal border-t border-maroon/30">
+        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <div data-aos="fade-right" data-aos-duration="1500">
+                <h2 class="text-4xl md:text-5xl font-indian mb-2 text-white uppercase tracking-widest">Hubli's First</h2>
+                <h2 class="text-3xl md:text-4xl font-indian mb-6 text-saffron uppercase tracking-widest">Dhol Tasha Pathak</h2>
+                <div class="h-1 w-16 bg-accent-gold mb-6"></div>
+                <p class="text-gray-300 mb-4 leading-relaxed">
+                    Born in 2019 from a deep devotion to Ganpati Bappa and a passion for Maharashtrian musical tradition, Swaranaad stands proudly as Hubli's pioneer in authentic Dhol-Tasha performance.
+                </p>
+                <p class="text-gray-300 mb-4 leading-relaxed">
+                    We bring together a community united by discipline, synchronized rhythm, and cultural identity. Every beat of our Dhol and every sharp strike of the Tasha is an offering, preserving a rich heritage of traditional percussion right here in Karnataka.
+                </p>
+                <p class="text-gray-300 leading-relaxed">
+                    When we perform, we perform exclusively for Ganesh Chaturthi. It is not just music; it is an emotion, a roar of devotion that transforms the streets into a grand celebration.
+                </p>
+            </div>
+            <div class="relative group" data-aos="fade-left" data-aos-duration="1500">
+                <div class="absolute -inset-2 bg-gradient-to-r from-saffron to-maroon rounded blur opacity-30 group-hover:opacity-60 transition duration-1000 group-hover:duration-200"></div>
+                <div class="placeholder-bg relative rounded shadow-2xl w-full h-[500px] flex items-center justify-center border border-gray-700">
+                    <span class="text-gray-500 uppercase tracking-widest font-bold">Legacy Image Placeholder</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ganesh Chaturthi: The Heart -->
+    <section id="ganesh-chaturthi" class="py-32 relative overflow-hidden bg-black">
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black z-10"></div>
+        <div class="placeholder-bg absolute inset-0 opacity-20"></div>
+        
+        <div class="relative z-20 max-w-5xl mx-auto px-6 text-center mb-20">
+            <h2 class="text-5xl md:text-7xl font-indian uppercase text-white mb-4" data-aos="zoom-in-down" data-aos-duration="1500">Ganesh Chaturthi</h2>
+            <p class="text-xl md:text-2xl text-saffron tracking-widest font-bold" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">WHEN THE CITY MOVES TO THE BEAT.</p>
+        </div>
+
+        <div class="relative z-20 max-w-4xl mx-auto px-6">
+            <div class="space-y-24 border-l-2 border-saffron/30 ml-4 md:ml-0 md:pl-0 md:border-none relative before:hidden md:before:block before:absolute before:top-0 before:bottom-0 before:left-1/2 before:w-0.5 before:bg-gradient-to-b before:from-saffron before:via-vermilion before:to-transparent before:-translate-x-1/2 before:-z-10">
+                
+                <!-- Story Sequence Item 1 -->
+                <div class="md:grid md:grid-cols-2 gap-8 items-center relative pl-8 md:pl-0" data-aos="fade-up-right" data-aos-duration="1500">
+                    <div class="hidden md:block text-right pr-12">
+                        <h3 class="text-3xl font-indian text-white mb-2">THE CALL</h3>
+                        <p class="text-gray-400">Ganesh Chaturthi arrives, and the anticipation builds in the air.</p>
+                    </div>
+                    <div class="md:hidden mb-4">
+                        <h3 class="text-2xl font-indian text-white mb-2">THE CALL</h3>
+                        <p class="text-gray-400">Ganesh Chaturthi arrives, and the anticipation builds in the air.</p>
+                    </div>
+                    <div class="relative">
+                        <div class="absolute -left-[41px] md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 top-0 md:top-1/2 w-5 h-5 bg-saffron rounded-full shadow-[0_0_15px_#FF671F]"></div>
+                        <div class="placeholder-bg rounded w-full h-48 flex items-center justify-center border border-gray-700">
+                            <span class="text-gray-500 text-sm font-bold uppercase">Image Placeholder</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Story Sequence Item 2 -->
+                <div class="md:grid md:grid-cols-2 gap-8 items-center relative pl-8 md:pl-0" data-aos="fade-up-left" data-aos-duration="1500">
+                    <div class="relative order-2 md:order-1 mt-4 md:mt-0">
+                        <div class="absolute -left-[41px] md:left-[calc(100%+24px)] md:-translate-x-1/2 md:-translate-y-1/2 top-0 md:top-1/2 w-5 h-5 bg-vermilion rounded-full shadow-[0_0_15px_#E34234]"></div>
+                        <div class="placeholder-bg rounded w-full h-48 flex items-center justify-center border border-gray-700">
+                            <span class="text-gray-500 text-sm font-bold uppercase">Video Placeholder</span>
+                        </div>
+                    </div>
+                    <div class="order-1 md:order-2 md:pl-12">
+                        <h3 class="text-3xl font-indian text-white mb-2">THE PREPARATION</h3>
+                        <p class="text-gray-400">The Pathak prepares, practicing tirelessly to synchronize mind, body, and instrument.</p>
+                    </div>
+                </div>
+
+                <!-- Story Sequence Item 3 -->
+                <div class="md:grid md:grid-cols-2 gap-8 items-center relative pl-8 md:pl-0" data-aos="fade-up-right" data-aos-duration="1500">
+                    <div class="hidden md:block text-right pr-12">
+                        <h3 class="text-3xl font-indian text-white mb-2">THE FORMATION</h3>
+                        <p class="text-gray-400">Dhol and Tasha players come together, standing shoulder to shoulder in strict discipline.</p>
+                    </div>
+                    <div class="md:hidden mb-4">
+                        <h3 class="text-2xl font-indian text-white mb-2">THE FORMATION</h3>
+                        <p class="text-gray-400">Dhol and Tasha players come together, standing shoulder to shoulder in strict discipline.</p>
+                    </div>
+                    <div class="relative">
+                        <div class="absolute -left-[41px] md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 top-0 md:top-1/2 w-5 h-5 bg-saffron rounded-full shadow-[0_0_15px_#FF671F]"></div>
+                        <div class="placeholder-bg rounded w-full h-48 flex items-center justify-center border border-gray-700">
+                            <span class="text-gray-500 text-sm font-bold uppercase">Image Placeholder</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Story Sequence Item 4 -->
+                <div class="md:grid md:grid-cols-2 gap-8 items-center relative pl-8 md:pl-0" data-aos="fade-up-left" data-aos-duration="1500">
+                    <div class="relative order-2 md:order-1 mt-4 md:mt-0">
+                        <div class="absolute -left-[41px] md:left-[calc(100%+24px)] md:-translate-x-1/2 md:-translate-y-1/2 top-0 md:top-1/2 w-5 h-5 bg-vermilion rounded-full shadow-[0_0_15px_#E34234]"></div>
+                        <div class="placeholder-bg rounded w-full h-48 flex items-center justify-center border border-gray-700">
+                            <i class="fas fa-drum text-5xl text-saffron/50"></i>
+                        </div>
+                    </div>
+                    <div class="order-1 md:order-2 md:pl-12">
+                        <h3 class="text-3xl font-indian text-white mb-2">THE BEAT</h3>
+                        <p class="text-gray-400">The first rhythm begins, sending vibrations through the ground and into the soul.</p>
+                    </div>
+                </div>
+
+                <!-- Story Sequence Item 5 -->
+                <div class="md:grid md:grid-cols-2 gap-8 items-center relative pl-8 md:pl-0" data-aos="fade-up-right" data-aos-duration="1500">
+                    <div class="hidden md:block text-right pr-12">
+                        <h3 class="text-3xl font-indian text-white mb-2">THE PROCESSION</h3>
+                        <p class="text-gray-400">The streets come alive. Bhagwa flags wave, and the energy is unmatched.</p>
+                    </div>
+                    <div class="md:hidden mb-4">
+                        <h3 class="text-2xl font-indian text-white mb-2">THE PROCESSION</h3>
+                        <p class="text-gray-400">The streets come alive. Bhagwa flags wave, and the energy is unmatched.</p>
+                    </div>
+                    <div class="relative">
+                        <div class="absolute -left-[41px] md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 top-0 md:top-1/2 w-5 h-5 bg-saffron rounded-full shadow-[0_0_15px_#FF671F]"></div>
+                        <div class="placeholder-bg rounded w-full h-48 flex items-center justify-center border border-gray-700">
+                            <span class="text-gray-500 text-sm font-bold uppercase">Image Placeholder</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Story Sequence Item 6 -->
+                <div class="text-center pt-16 relative" data-aos="zoom-in" data-aos-duration="1500">
+                    <h3 class="text-4xl md:text-5xl font-indian text-white mb-6">THE CELEBRATION</h3>
+                    <p class="text-3xl md:text-5xl font-marathi text-saffron drop-shadow-[0_0_20px_rgba(255,103,31,0.8)]">गणपती बाप्पा मोरया 🚩</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dhol & Tasha (Combined) -->
+    <section id="instruments" class="py-24 bg-charcoal">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-indian uppercase text-white" data-aos="fade-down" data-aos-duration="1200">Two Instruments.</h2>
+                <h2 class="text-4xl md:text-5xl font-indian uppercase text-saffron mt-2" data-aos="fade-up" data-aos-duration="1200">One Rhythm.</h2>
+            </div>
+
+            <div class="bg-black border border-gray-800 rounded-2xl p-8 relative overflow-hidden group shadow-[0_0_40px_rgba(0,0,0,0.6)]" data-aos="flip-up" data-aos-duration="1500">
+                <div class="absolute inset-0 bg-gradient-to-br from-saffron/10 to-maroon/10 z-0 opacity-50"></div>
+                
+                <div class="relative z-10 flex flex-col items-center text-center">
+                    <div class="w-full max-w-lg mx-auto aspect-[4/3] sm:aspect-video mb-8 relative">
+                        <div class="absolute inset-0 bg-saffron/10 rounded-full blur-3xl animate-pulse"></div>
+                        <img src="assets/images/dhol_tasha.png" class="w-full h-full object-contain relative z-10 filter drop-shadow-2xl hover:scale-105 transition-transform duration-700" alt="Dhol and Tasha" onerror="this.outerHTML='<div class=\'w-full h-full bg-gray-800 rounded-xl border border-dashed border-saffron flex items-center justify-center\'><span class=\'text-gray-500 uppercase font-bold tracking-widest\'>dhol_tasha.png Missing</span></div>'">
+                    </div>
+                    
+                    <h3 class="text-3xl md:text-4xl font-indian text-white mb-6 uppercase tracking-widest">Dhol & Tasha</h3>
+                    <p class="text-gray-400 text-base md:text-lg leading-relaxed mb-6 max-w-2xl mx-auto">
+                        The heartbeat of the procession. The Dhol provides the deep, thunderous bass that you feel in your chest, while the Tasha cuts through with sharp, high-pitched, energetic trills.
+                    </p>
+                    <p class="text-saffron text-lg md:text-xl font-bold font-indian">
+                        Together, they create an unstoppable force of devotion.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cultural Message -->
+    <section class="py-24 bg-black relative overflow-hidden border-y border-maroon/50">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/black-linen-2.png')] opacity-50"></div>
+        <div class="absolute right-0 top-0 w-1/2 h-full bg-saffron/5 blur-[120px] rounded-full"></div>
+        <div class="absolute left-0 bottom-0 w-1/2 h-full bg-vermilion/5 blur-[120px] rounded-full"></div>
+        
+        <div class="relative z-10 text-center max-w-4xl mx-auto px-6 flex flex-col items-center space-y-12">
+            <h2 class="text-5xl md:text-7xl font-marathi font-bold text-saffron drop-shadow-[0_0_20px_rgba(255,103,31,0.6)]" data-aos="zoom-in" data-aos-duration="1500">गणपती बाप्पा मोरया 🚩</h2>
+            <div class="w-24 h-px bg-gradient-to-r from-transparent via-accent-gold to-transparent" data-aos="fade-up" data-aos-duration="1000"></div>
+            <h2 class="text-4xl md:text-6xl font-marathi font-bold text-white drop-shadow-lg" data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="200">छत्रपती शिवाजी महाराज 🚩</h2>
+        </div>
+    </section>
+
+    <!-- Our Pathak -->
+    <section id="pathak" class="py-24 bg-gradient-to-b from-black to-charcoal">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-indian uppercase text-white mb-2" data-aos="fade-down" data-aos-duration="1000">ONE PATHAK.</h2>
+                <h2 class="text-4xl md:text-5xl font-indian uppercase text-saffron" data-aos="fade-up" data-aos-duration="1000">ONE RHYTHM.</h2>
+                <p class="mt-6 text-gray-400 max-w-2xl mx-auto text-lg" data-aos="fade-up" data-aos-duration="1200">Meet the dedicated members of Swaranaad who bring the tradition alive.</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <!-- Placeholders -->
+                <div class="bg-black/50 border border-gray-800 rounded-xl p-6 text-center group" data-aos="flip-left" data-aos-duration="1500">
+                    <div class="placeholder-bg w-24 h-24 mx-auto rounded-full mb-4 border-2 border-transparent group-hover:border-saffron transition-colors overflow-hidden"></div>
+                    <h4 class="text-white font-bold text-lg">Member Name</h4>
+                    <p class="text-saffron text-xs uppercase mt-1">Role</p>
+                </div>
+                <div class="bg-black/50 border border-gray-800 rounded-xl p-6 text-center group" data-aos="flip-right" data-aos-duration="1500" data-aos-delay="100">
+                    <div class="placeholder-bg w-24 h-24 mx-auto rounded-full mb-4 border-2 border-transparent group-hover:border-saffron transition-colors overflow-hidden"></div>
+                    <h4 class="text-white font-bold text-lg">Member Name</h4>
+                    <p class="text-saffron text-xs uppercase mt-1">Role</p>
+                </div>
+                <div class="bg-black/50 border border-gray-800 rounded-xl p-6 text-center group" data-aos="flip-left" data-aos-duration="1500" data-aos-delay="200">
+                    <div class="placeholder-bg w-24 h-24 mx-auto rounded-full mb-4 border-2 border-transparent group-hover:border-saffron transition-colors overflow-hidden"></div>
+                    <h4 class="text-white font-bold text-lg">Member Name</h4>
+                    <p class="text-saffron text-xs uppercase mt-1">Role</p>
+                </div>
+                <div class="bg-black/50 border border-gray-800 rounded-xl p-6 text-center group" data-aos="flip-right" data-aos-duration="1500" data-aos-delay="300">
+                    <div class="placeholder-bg w-24 h-24 mx-auto rounded-full mb-4 border-2 border-transparent group-hover:border-saffron transition-colors overflow-hidden"></div>
+                    <h4 class="text-white font-bold text-lg">Member Name</h4>
+                    <p class="text-saffron text-xs uppercase mt-1">Role</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Performance Archive (Descending Years) -->
+    <section id="performances" class="py-24 bg-charcoal border-t border-maroon/20">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-indian uppercase text-white mb-2" data-aos="zoom-in-up" data-aos-duration="1200">Performance <span class="text-saffron">Archive</span></h2>
+                <p class="text-gray-400 text-lg">Our Ganesh Chaturthi journey. Click any year to view the gallery.</p>
+            </div>
+
+            <!-- Responsive Grid for Archives with Preview Images -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                
+                <a href="gallery.html?year=2025" class="bg-black rounded-2xl border border-gray-800 hover:border-saffron flex flex-col items-center justify-center text-center group transition-all relative h-64 overflow-hidden shadow-xl" data-aos="fade-up" data-aos-duration="1000">
+                    <img src="assets/images/archive_2025.jpg" alt="2025 Archive Preview" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 group-hover:opacity-30 transition-transform duration-700" onerror="this.outerHTML='<div class=\'placeholder-bg absolute inset-0 opacity-40\'><span class=\'absolute bottom-2 left-2 text-xs text-gray-500\'>Preview Image</span></div>'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+                    <div class="relative z-10 flex flex-col justify-center items-center p-6 w-full h-full">
+                        <h3 class="text-5xl font-indian text-white group-hover:text-saffron transition-colors drop-shadow-[0_0_15px_rgba(0,0,0,1)] mb-3">2025</h3>
+                        <span class="text-sm text-gray-300 uppercase tracking-widest font-bold group-hover:text-white flex items-center gap-2 drop-shadow-md bg-black/50 px-4 py-2 rounded-full border border-gray-700 group-hover:border-saffron">View Gallery <i class="fas fa-arrow-right text-saffron"></i></span>
+                    </div>
+                </a>
+                
+                <a href="gallery.html?year=2024" class="bg-black rounded-2xl border border-gray-800 hover:border-saffron flex flex-col items-center justify-center text-center group transition-all relative h-64 overflow-hidden shadow-xl" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+                    <img src="assets/images/archive_2024.jpg" alt="2024 Archive Preview" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 group-hover:opacity-30 transition-transform duration-700" onerror="this.outerHTML='<div class=\'placeholder-bg absolute inset-0 opacity-40\'><span class=\'absolute bottom-2 left-2 text-xs text-gray-500\'>Preview Image</span></div>'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+                    <div class="relative z-10 flex flex-col justify-center items-center p-6 w-full h-full">
+                        <h3 class="text-5xl font-indian text-white group-hover:text-saffron transition-colors drop-shadow-[0_0_15px_rgba(0,0,0,1)] mb-3">2024</h3>
+                        <span class="text-sm text-gray-300 uppercase tracking-widest font-bold group-hover:text-white flex items-center gap-2 drop-shadow-md bg-black/50 px-4 py-2 rounded-full border border-gray-700 group-hover:border-saffron">View Gallery <i class="fas fa-arrow-right text-saffron"></i></span>
+                    </div>
+                </a>
+
+                <a href="gallery.html?year=2023" class="bg-black rounded-2xl border border-gray-800 hover:border-saffron flex flex-col items-center justify-center text-center group transition-all relative h-64 overflow-hidden shadow-xl" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                    <img src="assets/images/archive_2023.jpg" alt="2023 Archive Preview" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 group-hover:opacity-30 transition-transform duration-700" onerror="this.outerHTML='<div class=\'placeholder-bg absolute inset-0 opacity-40\'><span class=\'absolute bottom-2 left-2 text-xs text-gray-500\'>Preview Image</span></div>'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+                    <div class="relative z-10 flex flex-col justify-center items-center p-6 w-full h-full">
+                        <h3 class="text-5xl font-indian text-white group-hover:text-saffron transition-colors drop-shadow-[0_0_15px_rgba(0,0,0,1)] mb-3">2023</h3>
+                        <span class="text-sm text-gray-300 uppercase tracking-widest font-bold group-hover:text-white flex items-center gap-2 drop-shadow-md bg-black/50 px-4 py-2 rounded-full border border-gray-700 group-hover:border-saffron">View Gallery <i class="fas fa-arrow-right text-saffron"></i></span>
+                    </div>
+                </a>
+
+                <a href="gallery.html?year=2022" class="bg-black rounded-2xl border border-gray-800 hover:border-saffron flex flex-col items-center justify-center text-center group transition-all relative h-64 overflow-hidden shadow-xl" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+                    <img src="assets/images/archive_2022.jpg" alt="2022 Archive Preview" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 group-hover:opacity-30 transition-transform duration-700" onerror="this.outerHTML='<div class=\'placeholder-bg absolute inset-0 opacity-40\'><span class=\'absolute bottom-2 left-2 text-xs text-gray-500\'>Preview Image</span></div>'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+                    <div class="relative z-10 flex flex-col justify-center items-center p-6 w-full h-full">
+                        <h3 class="text-5xl font-indian text-white group-hover:text-saffron transition-colors drop-shadow-[0_0_15px_rgba(0,0,0,1)] mb-3">2022</h3>
+                        <span class="text-sm text-gray-300 uppercase tracking-widest font-bold group-hover:text-white flex items-center gap-2 drop-shadow-md bg-black/50 px-4 py-2 rounded-full border border-gray-700 group-hover:border-saffron">View Gallery <i class="fas fa-arrow-right text-saffron"></i></span>
+                    </div>
+                </a>
+
+                <a href="gallery.html?year=2021" class="bg-black rounded-2xl border border-gray-800 hover:border-saffron flex flex-col items-center justify-center text-center group transition-all relative h-64 overflow-hidden shadow-xl" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                    <img src="assets/images/archive_2021.jpg" alt="2021 Archive Preview" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 group-hover:opacity-30 transition-transform duration-700" onerror="this.outerHTML='<div class=\'placeholder-bg absolute inset-0 opacity-40\'><span class=\'absolute bottom-2 left-2 text-xs text-gray-500\'>Preview Image</span></div>'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+                    <div class="relative z-10 flex flex-col justify-center items-center p-6 w-full h-full">
+                        <h3 class="text-5xl font-indian text-white group-hover:text-saffron transition-colors drop-shadow-[0_0_15px_rgba(0,0,0,1)] mb-3">2021</h3>
+                        <span class="text-sm text-gray-300 uppercase tracking-widest font-bold group-hover:text-white flex items-center gap-2 drop-shadow-md bg-black/50 px-4 py-2 rounded-full border border-gray-700 group-hover:border-saffron">View Gallery <i class="fas fa-arrow-right text-saffron"></i></span>
+                    </div>
+                </a>
+
+                <a href="gallery.html?year=2020" class="bg-black rounded-2xl border border-gray-800 hover:border-saffron flex flex-col items-center justify-center text-center group transition-all relative h-64 overflow-hidden shadow-xl" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">
+                    <img src="assets/images/archive_2020.jpg" alt="2020 Archive Preview" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 group-hover:opacity-30 transition-transform duration-700" onerror="this.outerHTML='<div class=\'placeholder-bg absolute inset-0 opacity-40\'><span class=\'absolute bottom-2 left-2 text-xs text-gray-500\'>Preview Image</span></div>'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+                    <div class="relative z-10 flex flex-col justify-center items-center p-6 w-full h-full">
+                        <h3 class="text-5xl font-indian text-white group-hover:text-saffron transition-colors drop-shadow-[0_0_15px_rgba(0,0,0,1)] mb-3">2020</h3>
+                        <span class="text-sm text-gray-300 uppercase tracking-widest font-bold group-hover:text-white flex items-center gap-2 drop-shadow-md bg-black/50 px-4 py-2 rounded-full border border-gray-700 group-hover:border-saffron">View Gallery <i class="fas fa-arrow-right text-saffron"></i></span>
+                    </div>
+                </a>
+
+                <a href="gallery.html?year=2019" class="bg-black rounded-2xl border border-gray-800 hover:border-saffron flex flex-col items-center justify-center text-center group transition-all relative h-64 overflow-hidden shadow-xl md:col-start-2 border-b-4 border-b-saffron" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
+                    <img src="assets/images/archive_2019.jpg" alt="2019 Archive Preview" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 group-hover:opacity-30 transition-transform duration-700" onerror="this.outerHTML='<div class=\'placeholder-bg absolute inset-0 opacity-40\'><span class=\'absolute bottom-2 left-2 text-xs text-gray-500\'>Preview Image</span></div>'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+                    <div class="relative z-10 flex flex-col justify-center items-center p-6 w-full h-full">
+                        <h3 class="text-5xl font-indian text-white group-hover:text-saffron transition-colors drop-shadow-[0_0_15px_rgba(0,0,0,1)] mb-2">2019</h3>
+                        <p class="text-xs text-saffron uppercase tracking-widest font-bold bg-black/80 px-2 py-1 rounded mb-3">The Beginning</p>
+                        <span class="text-sm text-gray-300 uppercase tracking-widest font-bold group-hover:text-white flex items-center gap-2 drop-shadow-md bg-black/50 px-4 py-2 rounded-full border border-gray-700 group-hover:border-saffron">View Gallery <i class="fas fa-arrow-right text-saffron"></i></span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Swaranaad? -->
+    <section class="py-24 bg-gradient-to-b from-charcoal to-black">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-3xl md:text-5xl font-indian text-center text-white mb-16 uppercase" data-aos="fade-up" data-aos-duration="1200">Why <span class="text-saffron">Swaranaad?</span></h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Point 1 -->
+                <div class="p-8 border border-gray-800 rounded-xl bg-black hover:border-saffron transition-colors" data-aos="flip-up" data-aos-duration="1200">
+                    <i class="fas fa-award text-4xl text-saffron mb-4"></i>
+                    <h3 class="text-xl font-bold text-white mb-2 uppercase">Hubli's First</h3>
+                    <p class="text-gray-400 text-sm">Pioneering the authentic Dhol-Tasha Pathak identity and culture in Hubli since 2019.</p>
+                </div>
+                <!-- Point 2 -->
+                <div class="p-8 border border-gray-800 rounded-xl bg-black hover:border-saffron transition-colors" data-aos="flip-up" data-aos-duration="1200" data-aos-delay="100">
+                    <i class="fas fa-drum text-4xl text-saffron mb-4"></i>
+                    <h3 class="text-xl font-bold text-white mb-2 uppercase">Authentic Rhythm</h3>
+                    <p class="text-gray-400 text-sm">Traditional Maharashtrian-style Dhol-Tasha, preserving original beats and instruments.</p>
+                </div>
+                <!-- Point 3 -->
+                <div class="p-8 border border-gray-800 rounded-xl bg-black hover:border-saffron transition-colors" data-aos="flip-up" data-aos-duration="1200" data-aos-delay="200">
+                    <i class="fas fa-users text-4xl text-saffron mb-4"></i>
+                    <h3 class="text-xl font-bold text-white mb-2 uppercase">Synchronized Energy</h3>
+                    <p class="text-gray-400 text-sm">Strict discipline, powerful formations, and perfectly coordinated performance.</p>
+                </div>
+                <!-- Point 4 -->
+                <div class="p-8 border border-gray-800 rounded-xl bg-black hover:border-saffron transition-colors" data-aos="flip-up" data-aos-duration="1200" data-aos-delay="300">
+                    <i class="fas fa-om text-4xl text-saffron mb-4"></i>
+                    <h3 class="text-xl font-bold text-white mb-2 uppercase">Ganesh Chaturthi</h3>
+                    <p class="text-gray-400 text-sm">Dedicated exclusively to the Ganesh Chaturthi season. We play for devotion, not commercial events.</p>
+                </div>
+                <!-- Point 5 -->
+                <div class="p-8 border border-gray-800 rounded-xl bg-black hover:border-saffron transition-colors" data-aos="flip-up" data-aos-duration="1200" data-aos-delay="400">
+                    <i class="fas fa-flag text-4xl text-saffron mb-4"></i>
+                    <h3 class="text-xl font-bold text-white mb-2 uppercase">Cultural Pride</h3>
+                    <p class="text-gray-400 text-sm">Celebrating, promoting and preserving traditional percussion culture with pride.</p>
+                </div>
+                <!-- Point 6 -->
+                <div class="p-8 border border-gray-800 rounded-xl bg-black hover:border-saffron transition-colors" data-aos="flip-up" data-aos-duration="1200" data-aos-delay="500">
+                    <i class="fas fa-fire text-4xl text-saffron mb-4"></i>
+                    <h3 class="text-xl font-bold text-white mb-2 uppercase">The Experience</h3>
+                    <p class="text-gray-400 text-sm">A powerful collective rhythm that completely transforms the atmosphere of any procession.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Book Swaranaad (WhatsApp Integration) -->
+    <section id="booking" class="py-24 bg-black relative overflow-hidden border-t border-maroon/40">
+        <div class="max-w-4xl mx-auto px-6 relative z-10">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl md:text-5xl font-indian uppercase text-white mb-4" data-aos="fade-down" data-aos-duration="1500">Bring Swaranaad To Your <span class="text-saffron block mt-2">Ganesh Chaturthi.</span></h2>
+                <div class="bg-maroon/20 border border-maroon p-4 rounded-lg inline-block mt-4" data-aos="zoom-in" data-aos-duration="1200">
+                    <p class="text-saffron text-sm md:text-base font-bold flex items-center gap-2">
+                        <i class="fas fa-info-circle"></i> Note: Bookings are exclusively for Ganesh Chaturthi celebrations.
+                    </p>
+                </div>
+            </div>
+
+            <div class="bg-charcoal/80 backdrop-blur-md border border-gray-800 rounded-xl p-8 md:p-12 shadow-2xl" data-aos="fade-up" data-aos-duration="1500">
+                <form id="bookingForm" class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs uppercase font-bold text-gray-400 mb-2">Full Name *</label>
+                            <input type="text" id="b_name" required class="w-full bg-black border border-gray-700 rounded px-4 py-3 text-white focus:outline-none focus:border-saffron transition-colors">
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase font-bold text-gray-400 mb-2">WhatsApp Number *</label>
+                            <input type="tel" id="b_phone" required class="w-full bg-black border border-gray-700 rounded px-4 py-3 text-white focus:outline-none focus:border-saffron transition-colors">
+                        </div>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs uppercase font-bold text-gray-400 mb-2">Ganesh Chaturthi Date *</label>
+                            <input type="date" id="b_date" required class="w-full bg-black border border-gray-700 rounded px-4 py-3 text-white focus:outline-none focus:border-saffron transition-colors [color-scheme:dark]">
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase font-bold text-gray-400 mb-2">Event / Procession Name *</label>
+                            <input type="text" id="b_event" required placeholder="e.g. Visarjan Miravnuk" class="w-full bg-black border border-gray-700 rounded px-4 py-3 text-white focus:outline-none focus:border-saffron transition-colors">
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs uppercase font-bold text-gray-400 mb-2">Location in Hubli *</label>
+                            <input type="text" id="b_location" required class="w-full bg-black border border-gray-700 rounded px-4 py-3 text-white focus:outline-none focus:border-saffron transition-colors">
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase font-bold text-gray-400 mb-2">Expected Crowd</label>
+                            <select id="b_crowd" class="w-full bg-black border border-gray-700 rounded px-4 py-3 text-white focus:outline-none focus:border-saffron transition-colors">
+                                <option value="Small (Under 500)">Small (Under 500)</option>
+                                <option value="Medium (500 - 2000)">Medium (500 - 2000)</option>
+                                <option value="Large (2000+)">Large (2000+)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs uppercase font-bold text-gray-400 mb-2">Preferred Time</label>
+                            <input type="time" id="b_time" class="w-full bg-black border border-gray-700 rounded px-4 py-3 text-white focus:outline-none focus:border-saffron transition-colors [color-scheme:dark]">
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase font-bold text-gray-400 mb-2">Performance Duration</label>
+                            <select id="b_duration" class="w-full bg-black border border-gray-700 rounded px-4 py-3 text-white focus:outline-none focus:border-saffron transition-colors">
+                                <option value="1-2 Hours">1-2 Hours</option>
+                                <option value="2-4 Hours">2-4 Hours</option>
+                                <option value="4+ Hours">4+ Hours</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs uppercase font-bold text-gray-400 mb-2">Additional Requirements / Message</label>
+                        <textarea id="b_message" rows="3" class="w-full bg-black border border-gray-700 rounded px-4 py-3 text-white focus:outline-none focus:border-saffron transition-colors"></textarea>
+                    </div>
+
+                    <div class="pt-4">
+                        <button type="button" onclick="generateWhatsAppMsg()" class="w-full bg-saffron hover:bg-deep-orange text-white font-bold uppercase tracking-widest py-5 rounded-xl transition-colors flex items-center justify-center gap-3 shadow-[0_0_20px_rgba(255,103,31,0.5)] text-lg">
+                            <i class="fab fa-whatsapp text-2xl"></i> Send Booking Enquiry on WhatsApp
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instagram Section -->
+    <section class="py-24 bg-black border-t border-gray-800 text-center">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-indian uppercase text-white mb-2" data-aos="fade-down" data-aos-duration="1200">Follow The <span class="text-saffron">Rhythm</span></h2>
+            <p class="text-gray-400 mb-8" data-aos="fade-up" data-aos-duration="1200">Join our community on Instagram for the latest updates.</p>
+            
+            <a href="https://www.instagram.com/swaranaad_dholtasha_hubli/" target="_blank" class="inline-flex items-center gap-3 bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 text-white px-8 md:px-12 py-4 md:py-5 rounded-full font-bold uppercase tracking-widest hover:scale-105 transition-transform shadow-lg" data-aos="zoom-in" data-aos-duration="1500">
+                <i class="fab fa-instagram text-2xl md:text-3xl"></i> @swaranaad_dholtasha_hubli
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-charcoal pt-20 pb-10 border-t-4 border-saffron">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-12 mb-16">
+            <!-- Brand -->
+            <div class="md:col-span-2">
+                <img src="assets/images/logo.png" alt="Swaranaad Logo" class="h-12 w-auto mb-4" onerror="this.outerHTML='<h2 class=\'text-3xl font-indian tracking-widest text-white mb-2\'>SWARANAAD</h2>'">
+                <p class="text-xs uppercase tracking-widest text-saffron font-bold mb-6">Since 2019</p>
+                <p class="text-gray-400 text-sm max-w-sm leading-relaxed mb-6">
+                    A traditional Maharashtrian-style Dhol-Tasha Pathak based in Hubli, performing exclusively during Ganesh Chaturthi to preserve and celebrate our rich cultural heritage.
+                </p>
+                <div class="flex gap-4">
+                    <a href="https://www.instagram.com/swaranaad_dholtasha_hubli/" target="_blank" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-gradient-to-tr hover:from-orange-500 hover:to-purple-600 transition-all">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://wa.me/919738641082" target="_blank" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-green-500 transition-colors">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Quick Links -->
+            <div>
+                <h4 class="text-white font-bold uppercase tracking-widest mb-6">Explore</h4>
+                <ul class="space-y-3 text-sm text-gray-400">
+                    <li><a href="#home" class="hover:text-saffron transition-colors">Home</a></li>
+                    <li><a href="#legacy" class="hover:text-saffron transition-colors">Our Story</a></li>
+                    <li><a href="#ganesh-chaturthi" class="hover:text-saffron transition-colors">Ganesh Chaturthi</a></li>
+                    <li><a href="#instruments" class="hover:text-saffron transition-colors">Dhol & Tasha</a></li>
+                    <li><a href="#pathak" class="hover:text-saffron transition-colors">Our Pathak</a></li>
+                    <li><a href="#performances" class="hover:text-saffron transition-colors">Archive</a></li>
+                    <li><a href="#booking" class="hover:text-saffron transition-colors">Bookings</a></li>
+                </ul>
+            </div>
+            
+            <!-- Contact -->
+            <div>
+                <h4 class="text-white font-bold uppercase tracking-widest mb-6">Contact</h4>
+                <ul class="space-y-4 text-sm text-gray-400">
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-phone-alt text-saffron mt-1"></i>
+                        <div>
+                            <p>Bookings & Enquiries:</p>
+                            <a href="tel:9738641082" class="block hover:text-white transition-colors font-bold mt-1">9738641082</a>
+                            <a href="tel:9686211165" class="block hover:text-white transition-colors font-bold mt-1">9686211165</a>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-map-marker-alt text-saffron mt-1"></i>
+                        <p>Hubli, Karnataka, India</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-6 border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-center md:text-left">
+                <p class="text-gray-500 text-xs uppercase tracking-widest mb-2">
+                    &copy; 2026 Swaranaad Dhol Tasha Hubli. All Rights Reserved.
+                </p>
+                <!-- Neo Draft Solutions link -->
+                <a href="http://neodraftsolutions.me/neo/" target="_blank" class="text-saffron text-[10px] font-bold tracking-[0.2em] uppercase hover:text-white transition-colors">CREATED BY NEO DRAFT SOLUTIONS</a>
+            </div>
+            
+            <div class="flex gap-6 text-sm font-marathi text-gray-400">
+                <span>गणपती बाप्पा मोरया 🚩</span>
+                <span class="hidden md:inline">|</span>
+                <span>छत्रपती शिवाजी महाराज 🚩</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

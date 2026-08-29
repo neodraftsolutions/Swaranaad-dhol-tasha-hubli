@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth bg-gray-900">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swaranaad Gallery</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Yatra+One&family=Montserrat:wght@300;400;600;700;800&family=Tiro+Devanagari+Marathi&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        saffron: '#FF671F',
+                        charcoal: '#1A1A1A',
+                        'warm-cream': '#FDFBF7'
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        indian: ['"Yatra One"', 'cursive'],
+                        marathi: ['"Tiro Devanagari Marathi"', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-black text-warm-cream font-sans antialiased min-h-screen flex flex-col">
+
+    <!-- Header -->
+    <nav class="w-full z-40 py-4 px-6 md:px-12 flex items-center gap-6 bg-charcoal border-b border-gray-800 shadow-xl">
+        <a href="index.html#performances" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 text-white hover:bg-saffron transition-colors">
+            <i class="fas fa-arrow-left"></i>
+        </a>
+        <h1 class="text-2xl md:text-3xl font-indian text-white uppercase mt-1">Ganesh Chaturthi <span id="yearTitle" class="text-saffron">Archive</span></h1>
+    </nav>
+
+    <div class="px-6 md:px-12 py-12 max-w-7xl mx-auto w-full flex-grow">
+        <p class="text-gray-400 md:text-lg mb-10">Photographs and videos from the <span id="yearText" class="font-bold text-white">selected</span> procession.</p>
+
+        <!-- Gallery Grid (Responsive) -->
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8" id="galleryContainer">
+            <!-- Placeholders generated via JS -->
+        </div>
+    </div>
+
+    <!-- Lightbox for Image Zoom -->
+    <div id="lightbox" class="fixed inset-0 bg-black/95 z-[100] hidden flex-col items-center justify-center">
+        <button id="lightbox-close" class="absolute top-6 right-6 w-12 h-12 bg-gray-800 rounded-full text-white text-2xl hover:bg-saffron transition-colors z-50 shadow-lg">
+            <i class="fas fa-times"></i>
+        </button>
+        
+        <div id="lightbox-wrapper" class="relative w-full h-full flex items-center justify-center overflow-hidden">
+            <img id="lightbox-img" src="" class="max-w-full max-h-full object-contain cursor-grab transition-transform duration-200" style="transform: scale(1); transform-origin: center;">
+        </div>
+        
+        <div class="absolute bottom-10 flex gap-6 z-50">
+            <button id="zoom-out" class="bg-gray-800 text-white w-14 h-14 rounded-full hover:bg-saffron text-xl shadow-lg transition-colors"><i class="fas fa-minus"></i></button>
+            <button id="zoom-in" class="bg-gray-800 text-white w-14 h-14 rounded-full hover:bg-saffron text-xl shadow-lg transition-colors"><i class="fas fa-plus"></i></button>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            AOS.init({ duration: 800, once: true });
+
+            // Extract Year from URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const year = urlParams.get('year');
+            
+            if (year) {
+                document.getElementById('yearTitle').textContent = year;
+                document.getElementById('yearText').textContent = year;
+            }
+
+            // Generate placeholders
+            const container = document.getElementById('galleryContainer');
+            const items = 8;
+            
+            for(let i=1; i<=items; i++) {
+                const isVideo = i % 4 === 0;
+                // Generate a real placeholder URL so the lightbox has an image to zoom
+                const placeholderImgUrl = `https://via.placeholder.com/1200x800/1f2937/FF671F?text=Upload+Image+${i}`;
+                
+                container.innerHTML += `
+                    <div class="aspect-square bg-gray-800 rounded-xl overflow-hidden relative border border-gray-700 shadow-lg group cursor-pointer gallery-item" data-image="${placeholderImgUrl}" data-is-video="${isVideo}" data-aos="zoom-in" data-aos-delay="${(i%4)*100}">
+                        ${isVideo ? '<div class="absolute inset-0 flex items-center justify-center z-10"><i class="fas fa-play-circle text-4xl text-saffron opacity-80 group-hover:scale-110 transition-transform"></i></div>' : ''}
+                        
+                        <img src="${placeholderImgUrl}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-60">
+                        
+                        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors"></div>
+                        <div class="absolute bottom-3 left-3 z-10 text-[10px] md:text-xs text-gray-400 font-bold uppercase tracking-widest bg-black/70 px-3 py-1.5 rounded border border-gray-700">
+                            Upload ${isVideo ? 'Video' : 'Image'} ${i}
+                        </div>
+                    </div>
+                `;
+            }
+
+            // Lightbox Logic
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const closeBtn = document.getElementById('lightbox-close');
+            const zoomInBtn = document.getElementById('zoom-in');
+            const zoomOutBtn = document.getElementById('zoom-out');
+            const wrapper = document.getElementById('lightbox-wrapper');
+            let currentScale = 1;
+
+            // Open Lightbox
+            document.querySelectorAll('.gallery-item').forEach(item => {
+                item.addEventListener('click', () => {
+                    const isVideo = item.getAttribute('data-is-video') === 'true';
+                    if(isVideo) {
+                        alert("Video player will open here once a real video is uploaded.");
+                        return;
+                    }
+                    const imgSrc = item.getAttribute('data-image');
+                    lightboxImg.src = imgSrc;
+                    currentScale = 1;
+                    lightboxImg.style.transform = `scale(${currentScale})`;
+                    lightbox.classList.remove('hidden');
+                    lightbox.classList.add('flex');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+
+            // Close Lightbox
+            closeBtn.addEventListener('click', () => {
+                lightbox.classList.add('hidden');
+                lightbox.classList.remove('flex');
+                document.body.style.overflow = '';
+            });
+
+            // Zoom Functions
+            zoomInBtn.addEventListener('click', () => {
+                currentScale += 0.5;
+                if(currentScale > 4) currentScale = 4;
+                lightboxImg.style.transform = `scale(${currentScale})`;
+                updateCursor();
+            });
+
+            zoomOutBtn.addEventListener('click', () => {
+                currentScale -= 0.5;
+                if(currentScale < 1) currentScale = 1;
+                lightboxImg.style.transform = `scale(${currentScale})`;
+                updateCursor();
+            });
+
+            // Scroll to Zoom
+            wrapper.addEventListener('wheel', (e) => {
+                e.preventDefault();
+                if (e.deltaY < 0) {
+                    currentScale += 0.2;
+                } else {
+                    currentScale -= 0.2;
+                }
+                if(currentScale > 4) currentScale = 4;
+                if(currentScale < 1) currentScale = 1;
+                lightboxImg.style.transform = `scale(${currentScale})`;
+                updateCursor();
+            });
+            
+            function updateCursor() {
+                if(currentScale > 1) {
+                    lightboxImg.classList.remove('cursor-zoom-in');
+                    lightboxImg.classList.add('cursor-grab');
+                } else {
+                    lightboxImg.classList.remove('cursor-grab');
+                    lightboxImg.classList.add('cursor-zoom-in');
+                    lightboxImg.style.transform = `translate(0px, 0px) scale(1)`; // reset pos
+                }
+            }
+        });
+    </script>
+</body>
+</html>

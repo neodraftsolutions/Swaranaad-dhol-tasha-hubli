@@ -1,0 +1,117 @@
+/* Custom Animations and Styling for Swaranaad */
+
+/* Scrollbar Customization */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #000;
+}
+::-webkit-scrollbar-thumb {
+    background: #FF671F; /* Saffron */
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #E65100;
+}
+
+/* Base Styles */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography Enhancements */
+.font-marathi {
+    font-family: 'Tiro Devanagari Marathi', serif;
+}
+
+/* Navigation Scroll Effect */
+nav.scrolled {
+    background-color: rgba(26, 26, 26, 0.98);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+    border-bottom: 1px solid rgba(255, 103, 31, 0.3);
+}
+
+/* Splash Screen Pulse */
+@keyframes splashPulse {
+    0% { transform: scale(0.9); opacity: 0.8; }
+    50% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(0.9); opacity: 0.8; }
+}
+.animate-splash-pulse {
+    animation: splashPulse 1.5s ease-in-out infinite;
+}
+
+/* K Logo Floating Animation */
+@keyframes floatSettle {
+    0% { transform: translateY(-50px); opacity: 0; }
+    50% { transform: translateY(10px); opacity: 1; }
+    100% { transform: translateY(0px); opacity: 1; }
+}
+
+@keyframes floatContinuous {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+.floating-klogo {
+    animation: floatSettle 1.5s ease-out forwards, floatContinuous 4s ease-in-out 1.5s infinite;
+}
+
+/* 3D Hero Elements */
+.perspective-1000 {
+    perspective: 1000px;
+    transform-style: preserve-3d;
+}
+@keyframes spin3d {
+    from { transform: rotateX(65deg) rotateZ(0deg); }
+    to { transform: rotateX(65deg) rotateZ(360deg); }
+}
+@keyframes spin3d-reverse {
+    from { transform: rotateX(65deg) rotateZ(360deg); }
+    to { transform: rotateX(65deg) rotateZ(0deg); }
+}
+.animate-spin-3d {
+    animation: spin3d 20s linear infinite;
+}
+.animate-spin-3d-fast {
+    animation: spin3d 10s linear infinite;
+}
+.animate-spin-3d-reverse {
+    animation: spin3d-reverse 15s linear infinite;
+}
+
+/* Form inputs date/time white icon fix for dark scheme */
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
+/* Custom Selection Color */
+::selection {
+    background-color: #FF671F;
+    color: #fff;
+}
+
+/* Placeholder styling */
+.placeholder-bg {
+    background-image: repeating-linear-gradient(
+      45deg,
+      #1f2937 0,
+      #1f2937 10px,
+      #111827 10px,
+      #111827 20px
+    );
+}
+
+/* Lightbox specific overrides */
+.cursor-zoom-in { cursor: zoom-in; }
+.cursor-grab { cursor: grab; }
+.cursor-grabbing { cursor: grabbing; }
