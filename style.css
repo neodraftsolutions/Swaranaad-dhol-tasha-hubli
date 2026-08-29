@@ -131,3 +131,65 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 .cursor-zoom-in { cursor: zoom-in; }
 .cursor-grab { cursor: grab; }
 .cursor-grabbing { cursor: grabbing; }
+
+/* ==========================================================================
+   Mobile fit / responsiveness
+   ========================================================================== */
+
+/* Guarantee nothing pushes the page wider than the phone screen */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+*, *::before, *::after {
+    min-width: 0;
+}
+
+/* Use the small-viewport unit where supported so the hero isn't clipped
+   behind mobile browser toolbars */
+@supports (height: 100svh) {
+    #home {
+        min-height: 100svh;
+    }
+}
+
+/* Long Devanagari / uppercase headings must wrap instead of overflowing */
+h1, h2, h3 {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+}
+
+/* Phones: 480px and below */
+@media (max-width: 480px) {
+    /* Tone down wide letter-spacing that causes horizontal overflow */
+    .tracking-widest { letter-spacing: 0.05em; }
+    .tracking-\[0\.4em\] { letter-spacing: 0.25em; }
+    .tracking-\[0\.3em\] { letter-spacing: 0.2em; }
+
+    /* Cap the very large display headings so they fit narrow screens */
+    .font-indian.text-4xl,
+    .font-indian.text-5xl { font-size: 2rem; line-height: 1.15; }
+    .font-marathi.text-5xl { font-size: 1.9rem; line-height: 1.3; }
+    .font-marathi.text-4xl { font-size: 1.6rem; line-height: 1.3; }
+
+    /* Section vertical rhythm is lighter on small screens */
+    section.py-24, section.py-32 { padding-top: 4rem; padding-bottom: 4rem; }
+
+    /* Cards / panels: trim oversized inner padding */
+    .p-8 { padding: 1.25rem; }
+
+    /* Legacy image placeholder shouldn't eat the whole screen */
+    .h-\[500px\] { height: 320px; }
+
+    /* Archive horizontal cards: fit within the viewport with a peek of the next */
+    #archiveScroll > a { width: 78vw; max-width: 300px; }
+}
+
+/* Very small phones: 360px and below */
+@media (max-width: 360px) {
+    .font-indian.text-4xl,
+    .font-indian.text-5xl { font-size: 1.7rem; }
+    .font-marathi.text-5xl { font-size: 1.6rem; }
+    h1.text-5xl { font-size: 2rem; }
+}
