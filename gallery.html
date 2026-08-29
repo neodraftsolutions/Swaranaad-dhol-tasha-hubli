@@ -29,7 +29,7 @@
             }
         }
     </script>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-black text-warm-cream font-sans antialiased min-h-screen flex flex-col">
 
@@ -86,8 +86,10 @@
             
             for(let i=1; i<=items; i++) {
                 const isVideo = i % 4 === 0;
-                // Generate a real placeholder URL so the lightbox has an image to zoom
-                const placeholderImgUrl = `https://via.placeholder.com/1200x800/1f2937/FF671F?text=Upload+Image+${i}`;
+                // Inline SVG placeholder so the lightbox has an image to zoom (no external request)
+                const placeholderImgUrl = `data:image/svg+xml,${encodeURIComponent(
+                    `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800"><rect width="1200" height="800" fill="#1f2937"/><text x="50%" y="50%" fill="#FF671F" font-family="Montserrat,Arial,sans-serif" font-size="52" font-weight="700" text-anchor="middle" dominant-baseline="middle">Upload ${isVideo ? 'Video' : 'Image'} ${i}</text></svg>`
+                )}`;
                 
                 container.innerHTML += `
                     <div class="aspect-square bg-gray-800 rounded-xl overflow-hidden relative border border-gray-700 shadow-lg group cursor-pointer gallery-item" data-image="${placeholderImgUrl}" data-is-video="${isVideo}" data-aos="zoom-in" data-aos-delay="${(i%4)*100}">
