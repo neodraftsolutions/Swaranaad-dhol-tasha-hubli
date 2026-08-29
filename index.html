@@ -44,7 +44,7 @@
     </script>
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-black text-warm-cream font-sans overflow-x-hidden antialiased">
 
@@ -289,7 +289,7 @@
                 <div class="relative z-10 flex flex-col items-center text-center">
                     <div class="w-full max-w-lg mx-auto aspect-[4/3] sm:aspect-video mb-8 relative">
                         <div class="absolute inset-0 bg-saffron/10 rounded-full blur-3xl animate-pulse"></div>
-                        <img src="assets/images/dhol_tasha.png" class="w-full h-full object-contain relative z-10 filter drop-shadow-2xl hover:scale-105 transition-transform duration-700" alt="Dhol and Tasha" onerror="this.outerHTML='<div class=\'w-full h-full bg-gray-800 rounded-xl border border-dashed border-saffron flex items-center justify-center\'><span class=\'text-gray-500 uppercase font-bold tracking-widest\'>dhol_tasha.png Missing</span></div>'">
+                        <img src="dhol_tasha.png" class="w-full h-full object-contain relative z-10 filter drop-shadow-2xl hover:scale-105 transition-transform duration-700" alt="Dhol and Tasha" onerror="this.outerHTML='<div class=\'w-full h-full bg-gray-800 rounded-xl border border-dashed border-saffron flex items-center justify-center\'><span class=\'text-gray-500 uppercase font-bold tracking-widest\'>dhol_tasha.png Missing</span></div>'">
                     </div>
                     
                     <h3 class="text-3xl md:text-4xl font-indian text-white mb-6 uppercase tracking-widest">Dhol & Tasha</h3>
@@ -352,28 +352,52 @@
         </div>
     </section>
 
-    <!-- Performance Archive (Descending Years) -->
-    <section id="performances" class="py-24 bg-charcoal border-t border-maroon/20">
+    <!-- Performance Archive (Horizontal Scroll, Descending Years) -->
+    <section id="performances" class="py-24 bg-charcoal border-t border-maroon/20 overflow-hidden">
         <div class="max-w-6xl mx-auto px-6">
             <div class="text-center mb-16">
                 <h2 class="text-4xl md:text-5xl font-indian uppercase text-white mb-2" data-aos="zoom-in-up" data-aos-duration="1200">Performance <span class="text-saffron">Archive</span></h2>
-                <p class="text-gray-400 text-lg">Our Ganesh Chaturthi journey. Click any year to view the gallery.</p>
+                <p class="text-gray-400 text-lg">Our Ganesh Chaturthi journey since 2019. Scroll sideways and click any year to view the gallery.</p>
             </div>
+        </div>
 
-            <!-- Responsive Grid for Archives with Preview Images -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                
-                <a href="gallery.html?year=2025" class="bg-black rounded-2xl border border-gray-800 hover:border-saffron flex flex-col items-center justify-center text-center group transition-all relative h-64 overflow-hidden shadow-xl" data-aos="fade-up" data-aos-duration="1000">
-                    <img src="assets/images/archive_2025.jpg" alt="2025 Archive Preview" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 group-hover:opacity-30 transition-transform duration-700" onerror="this.outerHTML='<div class=\'placeholder-bg absolute inset-0 opacity-40\'><span class=\'absolute bottom-2 left-2 text-xs text-gray-500\'>Preview Image</span></div>'">
+        <!-- Horizontal Scroll Track -->
+        <div class="relative max-w-7xl mx-auto" data-aos="fade-up" data-aos-duration="1000">
+            <!-- Prev / Next Buttons -->
+            <button type="button" data-archive-prev aria-label="Scroll to previous years" class="hidden md:flex absolute left-2 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-black/70 border border-gray-700 text-white items-center justify-center hover:bg-saffron hover:border-saffron transition-colors shadow-lg">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button type="button" data-archive-next aria-label="Scroll to next years" class="hidden md:flex absolute right-2 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-black/70 border border-gray-700 text-white items-center justify-center hover:bg-saffron hover:border-saffron transition-colors shadow-lg">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+
+            <!-- Edge Fades -->
+            <div class="pointer-events-none absolute inset-y-0 left-0 w-12 md:w-24 bg-gradient-to-r from-charcoal to-transparent z-10"></div>
+            <div class="pointer-events-none absolute inset-y-0 right-0 w-12 md:w-24 bg-gradient-to-l from-charcoal to-transparent z-10"></div>
+
+            <div id="archiveScroll" class="archive-scroll flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth px-6 md:px-16 pb-6">
+
+                <a href="gallery.html?year=2026" class="snap-start shrink-0 w-[280px] sm:w-[320px] h-72 bg-black rounded-2xl border border-gray-800 hover:border-saffron flex flex-col items-center justify-center text-center group transition-all relative overflow-hidden shadow-xl border-t-4 border-t-saffron">
+                    <img src="archive_2026.jpg" alt="2026 Archive Preview" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 group-hover:opacity-30 transition-transform duration-700" onerror="this.outerHTML='<div class=\'placeholder-bg absolute inset-0 opacity-40\'><span class=\'absolute bottom-2 left-2 text-xs text-gray-500\'>Preview Image</span></div>'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+                    <div class="relative z-10 flex flex-col justify-center items-center p-6 w-full h-full">
+                        <h3 class="text-5xl font-indian text-white group-hover:text-saffron transition-colors drop-shadow-[0_0_15px_rgba(0,0,0,1)] mb-2">2026</h3>
+                        <p class="text-xs text-saffron uppercase tracking-widest font-bold bg-black/80 px-2 py-1 rounded mb-3">This Year</p>
+                        <span class="text-sm text-gray-300 uppercase tracking-widest font-bold group-hover:text-white flex items-center gap-2 drop-shadow-md bg-black/50 px-4 py-2 rounded-full border border-gray-700 group-hover:border-saffron">View Gallery <i class="fas fa-arrow-right text-saffron"></i></span>
+                    </div>
+                </a>
+
+                <a href="gallery.html?year=2025" class="snap-start shrink-0 w-[280px] sm:w-[320px] h-72 bg-black rounded-2xl border border-gray-800 hover:border-saffron flex flex-col items-center justify-center text-center group transition-all relative overflow-hidden shadow-xl">
+                    <img src="archive_2025.jpg" alt="2025 Archive Preview" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 group-hover:opacity-30 transition-transform duration-700" onerror="this.outerHTML='<div class=\'placeholder-bg absolute inset-0 opacity-40\'><span class=\'absolute bottom-2 left-2 text-xs text-gray-500\'>Preview Image</span></div>'">
                     <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
                     <div class="relative z-10 flex flex-col justify-center items-center p-6 w-full h-full">
                         <h3 class="text-5xl font-indian text-white group-hover:text-saffron transition-colors drop-shadow-[0_0_15px_rgba(0,0,0,1)] mb-3">2025</h3>
                         <span class="text-sm text-gray-300 uppercase tracking-widest font-bold group-hover:text-white flex items-center gap-2 drop-shadow-md bg-black/50 px-4 py-2 rounded-full border border-gray-700 group-hover:border-saffron">View Gallery <i class="fas fa-arrow-right text-saffron"></i></span>
                     </div>
                 </a>
-                
-                <a href="gallery.html?year=2024" class="bg-black rounded-2xl border border-gray-800 hover:border-saffron flex flex-col items-center justify-center text-center group transition-all relative h-64 overflow-hidden shadow-xl" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
-                    <img src="assets/images/archive_2024.jpg" alt="2024 Archive Preview" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 group-hover:opacity-30 transition-transform duration-700" onerror="this.outerHTML='<div class=\'placeholder-bg absolute inset-0 opacity-40\'><span class=\'absolute bottom-2 left-2 text-xs text-gray-500\'>Preview Image</span></div>'">
+
+                <a href="gallery.html?year=2024" class="snap-start shrink-0 w-[280px] sm:w-[320px] h-72 bg-black rounded-2xl border border-gray-800 hover:border-saffron flex flex-col items-center justify-center text-center group transition-all relative overflow-hidden shadow-xl">
+                    <img src="archive_2024.jpg" alt="2024 Archive Preview" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 group-hover:opacity-30 transition-transform duration-700" onerror="this.outerHTML='<div class=\'placeholder-bg absolute inset-0 opacity-40\'><span class=\'absolute bottom-2 left-2 text-xs text-gray-500\'>Preview Image</span></div>'">
                     <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
                     <div class="relative z-10 flex flex-col justify-center items-center p-6 w-full h-full">
                         <h3 class="text-5xl font-indian text-white group-hover:text-saffron transition-colors drop-shadow-[0_0_15px_rgba(0,0,0,1)] mb-3">2024</h3>
@@ -381,8 +405,8 @@
                     </div>
                 </a>
 
-                <a href="gallery.html?year=2023" class="bg-black rounded-2xl border border-gray-800 hover:border-saffron flex flex-col items-center justify-center text-center group transition-all relative h-64 overflow-hidden shadow-xl" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-                    <img src="assets/images/archive_2023.jpg" alt="2023 Archive Preview" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 group-hover:opacity-30 transition-transform duration-700" onerror="this.outerHTML='<div class=\'placeholder-bg absolute inset-0 opacity-40\'><span class=\'absolute bottom-2 left-2 text-xs text-gray-500\'>Preview Image</span></div>'">
+                <a href="gallery.html?year=2023" class="snap-start shrink-0 w-[280px] sm:w-[320px] h-72 bg-black rounded-2xl border border-gray-800 hover:border-saffron flex flex-col items-center justify-center text-center group transition-all relative overflow-hidden shadow-xl">
+                    <img src="archive_2023.jpg" alt="2023 Archive Preview" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 group-hover:opacity-30 transition-transform duration-700" onerror="this.outerHTML='<div class=\'placeholder-bg absolute inset-0 opacity-40\'><span class=\'absolute bottom-2 left-2 text-xs text-gray-500\'>Preview Image</span></div>'">
                     <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
                     <div class="relative z-10 flex flex-col justify-center items-center p-6 w-full h-full">
                         <h3 class="text-5xl font-indian text-white group-hover:text-saffron transition-colors drop-shadow-[0_0_15px_rgba(0,0,0,1)] mb-3">2023</h3>
@@ -390,8 +414,8 @@
                     </div>
                 </a>
 
-                <a href="gallery.html?year=2022" class="bg-black rounded-2xl border border-gray-800 hover:border-saffron flex flex-col items-center justify-center text-center group transition-all relative h-64 overflow-hidden shadow-xl" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
-                    <img src="assets/images/archive_2022.jpg" alt="2022 Archive Preview" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 group-hover:opacity-30 transition-transform duration-700" onerror="this.outerHTML='<div class=\'placeholder-bg absolute inset-0 opacity-40\'><span class=\'absolute bottom-2 left-2 text-xs text-gray-500\'>Preview Image</span></div>'">
+                <a href="gallery.html?year=2022" class="snap-start shrink-0 w-[280px] sm:w-[320px] h-72 bg-black rounded-2xl border border-gray-800 hover:border-saffron flex flex-col items-center justify-center text-center group transition-all relative overflow-hidden shadow-xl">
+                    <img src="archive_2022.jpg" alt="2022 Archive Preview" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 group-hover:opacity-30 transition-transform duration-700" onerror="this.outerHTML='<div class=\'placeholder-bg absolute inset-0 opacity-40\'><span class=\'absolute bottom-2 left-2 text-xs text-gray-500\'>Preview Image</span></div>'">
                     <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
                     <div class="relative z-10 flex flex-col justify-center items-center p-6 w-full h-full">
                         <h3 class="text-5xl font-indian text-white group-hover:text-saffron transition-colors drop-shadow-[0_0_15px_rgba(0,0,0,1)] mb-3">2022</h3>
@@ -399,8 +423,8 @@
                     </div>
                 </a>
 
-                <a href="gallery.html?year=2021" class="bg-black rounded-2xl border border-gray-800 hover:border-saffron flex flex-col items-center justify-center text-center group transition-all relative h-64 overflow-hidden shadow-xl" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
-                    <img src="assets/images/archive_2021.jpg" alt="2021 Archive Preview" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 group-hover:opacity-30 transition-transform duration-700" onerror="this.outerHTML='<div class=\'placeholder-bg absolute inset-0 opacity-40\'><span class=\'absolute bottom-2 left-2 text-xs text-gray-500\'>Preview Image</span></div>'">
+                <a href="gallery.html?year=2021" class="snap-start shrink-0 w-[280px] sm:w-[320px] h-72 bg-black rounded-2xl border border-gray-800 hover:border-saffron flex flex-col items-center justify-center text-center group transition-all relative overflow-hidden shadow-xl">
+                    <img src="archive_2021.jpg" alt="2021 Archive Preview" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 group-hover:opacity-30 transition-transform duration-700" onerror="this.outerHTML='<div class=\'placeholder-bg absolute inset-0 opacity-40\'><span class=\'absolute bottom-2 left-2 text-xs text-gray-500\'>Preview Image</span></div>'">
                     <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
                     <div class="relative z-10 flex flex-col justify-center items-center p-6 w-full h-full">
                         <h3 class="text-5xl font-indian text-white group-hover:text-saffron transition-colors drop-shadow-[0_0_15px_rgba(0,0,0,1)] mb-3">2021</h3>
@@ -408,8 +432,8 @@
                     </div>
                 </a>
 
-                <a href="gallery.html?year=2020" class="bg-black rounded-2xl border border-gray-800 hover:border-saffron flex flex-col items-center justify-center text-center group transition-all relative h-64 overflow-hidden shadow-xl" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">
-                    <img src="assets/images/archive_2020.jpg" alt="2020 Archive Preview" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 group-hover:opacity-30 transition-transform duration-700" onerror="this.outerHTML='<div class=\'placeholder-bg absolute inset-0 opacity-40\'><span class=\'absolute bottom-2 left-2 text-xs text-gray-500\'>Preview Image</span></div>'">
+                <a href="gallery.html?year=2020" class="snap-start shrink-0 w-[280px] sm:w-[320px] h-72 bg-black rounded-2xl border border-gray-800 hover:border-saffron flex flex-col items-center justify-center text-center group transition-all relative overflow-hidden shadow-xl">
+                    <img src="archive_2020.jpg" alt="2020 Archive Preview" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 group-hover:opacity-30 transition-transform duration-700" onerror="this.outerHTML='<div class=\'placeholder-bg absolute inset-0 opacity-40\'><span class=\'absolute bottom-2 left-2 text-xs text-gray-500\'>Preview Image</span></div>'">
                     <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
                     <div class="relative z-10 flex flex-col justify-center items-center p-6 w-full h-full">
                         <h3 class="text-5xl font-indian text-white group-hover:text-saffron transition-colors drop-shadow-[0_0_15px_rgba(0,0,0,1)] mb-3">2020</h3>
@@ -417,8 +441,8 @@
                     </div>
                 </a>
 
-                <a href="gallery.html?year=2019" class="bg-black rounded-2xl border border-gray-800 hover:border-saffron flex flex-col items-center justify-center text-center group transition-all relative h-64 overflow-hidden shadow-xl md:col-start-2 border-b-4 border-b-saffron" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
-                    <img src="assets/images/archive_2019.jpg" alt="2019 Archive Preview" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 group-hover:opacity-30 transition-transform duration-700" onerror="this.outerHTML='<div class=\'placeholder-bg absolute inset-0 opacity-40\'><span class=\'absolute bottom-2 left-2 text-xs text-gray-500\'>Preview Image</span></div>'">
+                <a href="gallery.html?year=2019" class="snap-start shrink-0 w-[280px] sm:w-[320px] h-72 bg-black rounded-2xl border border-gray-800 hover:border-saffron flex flex-col items-center justify-center text-center group transition-all relative overflow-hidden shadow-xl border-b-4 border-b-saffron">
+                    <img src="archive_2019.jpg" alt="2019 Archive Preview" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 group-hover:opacity-30 transition-transform duration-700" onerror="this.outerHTML='<div class=\'placeholder-bg absolute inset-0 opacity-40\'><span class=\'absolute bottom-2 left-2 text-xs text-gray-500\'>Preview Image</span></div>'">
                     <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
                     <div class="relative z-10 flex flex-col justify-center items-center p-6 w-full h-full">
                         <h3 class="text-5xl font-indian text-white group-hover:text-saffron transition-colors drop-shadow-[0_0_15px_rgba(0,0,0,1)] mb-2">2019</h3>
@@ -574,7 +598,7 @@
         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-12 mb-16">
             <!-- Brand -->
             <div class="md:col-span-2">
-                <img src="assets/images/logo.png" alt="Swaranaad Logo" class="h-12 w-auto mb-4" onerror="this.outerHTML='<h2 class=\'text-3xl font-indian tracking-widest text-white mb-2\'>SWARANAAD</h2>'">
+                <img src="logo.png" alt="Swaranaad Logo" class="h-12 w-auto mb-4" onerror="this.outerHTML='<h2 class=\'text-3xl font-indian tracking-widest text-white mb-2\'>SWARANAAD</h2>'">
                 <p class="text-xs uppercase tracking-widest text-saffron font-bold mb-6">Since 2019</p>
                 <p class="text-gray-400 text-sm max-w-sm leading-relaxed mb-6">
                     A traditional Maharashtrian-style Dhol-Tasha Pathak based in Hubli, performing exclusively during Ganesh Chaturthi to preserve and celebrate our rich cultural heritage.
@@ -642,6 +666,6 @@
 
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="js/script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
