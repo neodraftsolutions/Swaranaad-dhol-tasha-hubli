@@ -111,6 +111,22 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     );
 }
 
+/* Performance Archive horizontal scroll track */
+.archive-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: #FF671F #1A1A1A;
+}
+.archive-scroll::-webkit-scrollbar {
+    height: 6px;
+}
+.archive-scroll::-webkit-scrollbar-track {
+    background: #1A1A1A;
+}
+.archive-scroll::-webkit-scrollbar-thumb {
+    background: #FF671F;
+    border-radius: 4px;
+}
+
 /* Lightbox specific overrides */
 .cursor-zoom-in { cursor: zoom-in; }
 .cursor-grab { cursor: grab; }
