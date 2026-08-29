@@ -60,6 +60,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Floating Particles for Hero Section (only if container exists)
     createParticles();
+
+    // Performance Archive horizontal scroll controls
+    const archiveScroll = document.getElementById('archiveScroll');
+    if (archiveScroll) {
+        const prevBtn = document.querySelector('[data-archive-prev]');
+        const nextBtn = document.querySelector('[data-archive-next]');
+        const step = () => Math.max(archiveScroll.clientWidth * 0.8, 300);
+
+        if (prevBtn) prevBtn.addEventListener('click', () => {
+            archiveScroll.scrollBy({ left: -step(), behavior: 'smooth' });
+        });
+        if (nextBtn) nextBtn.addEventListener('click', () => {
+            archiveScroll.scrollBy({ left: step(), behavior: 'smooth' });
+        });
+
+        // Let a vertical mouse wheel scroll the track horizontally
+        archiveScroll.addEventListener('wheel', (e) => {
+            if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+                archiveScroll.scrollLeft += e.deltaY;
+                e.preventDefault();
+            }
+        }, { passive: false });
+    }
 });
 
 function createParticles() {
