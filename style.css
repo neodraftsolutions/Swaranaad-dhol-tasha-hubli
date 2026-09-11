@@ -1,0 +1,206 @@
+/* Custom Animations and Styling for Swaranaad */
+
+/* Scrollbar Customization */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #000;
+}
+::-webkit-scrollbar-thumb {
+    background: #FF671F; /* Saffron */
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #E65100;
+}
+
+/* Base Styles */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography Enhancements */
+.font-marathi {
+    font-family: 'Tiro Devanagari Marathi', serif;
+}
+
+/* Navigation Scroll Effect */
+nav.scrolled {
+    background-color: rgba(26, 26, 26, 0.98);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+    border-bottom: 1px solid rgba(255, 103, 31, 0.3);
+}
+
+/* Splash Screen Pulse */
+@keyframes splashPulse {
+    0% { transform: scale(0.9); opacity: 0.8; }
+    50% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(0.9); opacity: 0.8; }
+}
+.animate-splash-pulse {
+    animation: splashPulse 1.5s ease-in-out infinite;
+}
+
+/* K Logo Floating Animation */
+@keyframes floatSettle {
+    0% { transform: translateY(-50px); opacity: 0; }
+    50% { transform: translateY(10px); opacity: 1; }
+    100% { transform: translateY(0px); opacity: 1; }
+}
+
+@keyframes floatContinuous {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+.floating-klogo {
+    animation: floatSettle 1.5s ease-out forwards, floatContinuous 4s ease-in-out 1.5s infinite;
+}
+
+/* 3D Hero Elements */
+.perspective-1000 {
+    perspective: 1000px;
+    transform-style: preserve-3d;
+}
+@keyframes spin3d {
+    from { transform: rotateX(65deg) rotateZ(0deg); }
+    to { transform: rotateX(65deg) rotateZ(360deg); }
+}
+@keyframes spin3d-reverse {
+    from { transform: rotateX(65deg) rotateZ(360deg); }
+    to { transform: rotateX(65deg) rotateZ(0deg); }
+}
+.animate-spin-3d {
+    animation: spin3d 20s linear infinite;
+}
+.animate-spin-3d-fast {
+    animation: spin3d 10s linear infinite;
+}
+.animate-spin-3d-reverse {
+    animation: spin3d-reverse 15s linear infinite;
+}
+
+/* Form inputs date/time white icon fix for dark scheme */
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
+/* Custom Selection Color */
+::selection {
+    background-color: #FF671F;
+    color: #fff;
+}
+
+/* Placeholder styling */
+.placeholder-bg {
+    background-image: repeating-linear-gradient(
+      45deg,
+      #1f2937 0,
+      #1f2937 10px,
+      #111827 10px,
+      #111827 20px
+    );
+}
+
+/* Slow black fade-in reveal (custom AOS animation) */
+[data-aos="black-fade"] {
+    opacity: 0;
+    filter: brightness(0);
+    transition-property: opacity, filter;
+}
+[data-aos="black-fade"].aos-animate {
+    opacity: 1;
+    filter: brightness(1);
+}
+
+/* Performance Archive horizontal scroll track */
+.archive-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: #FF671F #1A1A1A;
+}
+.archive-scroll::-webkit-scrollbar {
+    height: 6px;
+}
+.archive-scroll::-webkit-scrollbar-track {
+    background: #1A1A1A;
+}
+.archive-scroll::-webkit-scrollbar-thumb {
+    background: #FF671F;
+    border-radius: 4px;
+}
+
+/* Lightbox specific overrides */
+.cursor-zoom-in { cursor: zoom-in; }
+.cursor-grab { cursor: grab; }
+.cursor-grabbing { cursor: grabbing; }
+
+/* ==========================================================================
+   Mobile fit / responsiveness
+   ========================================================================== */
+
+/* Guarantee nothing pushes the page wider than the phone screen */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+*, *::before, *::after {
+    min-width: 0;
+}
+
+/* Use the small-viewport unit where supported so the hero isn't clipped
+   behind mobile browser toolbars */
+@supports (height: 100svh) {
+    #home {
+        min-height: 100svh;
+    }
+}
+
+/* Long Devanagari / uppercase headings must wrap instead of overflowing */
+h1, h2, h3 {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+}
+
+/* Phones: 480px and below */
+@media (max-width: 480px) {
+    /* Tone down wide letter-spacing that causes horizontal overflow */
+    .tracking-widest { letter-spacing: 0.05em; }
+    .tracking-\[0\.4em\] { letter-spacing: 0.25em; }
+    .tracking-\[0\.3em\] { letter-spacing: 0.2em; }
+
+    /* Cap the very large display headings so they fit narrow screens */
+    .font-indian.text-4xl,
+    .font-indian.text-5xl { font-size: 2rem; line-height: 1.15; }
+    .font-marathi.text-5xl { font-size: 1.9rem; line-height: 1.3; }
+    .font-marathi.text-4xl { font-size: 1.6rem; line-height: 1.3; }
+
+    /* Section vertical rhythm is lighter on small screens */
+    section.py-24, section.py-32 { padding-top: 4rem; padding-bottom: 4rem; }
+
+    /* Cards / panels: trim oversized inner padding */
+    .p-8 { padding: 1.25rem; }
+
+    /* Legacy image placeholder shouldn't eat the whole screen */
+    .h-\[500px\] { height: 320px; }
+
+    /* Archive horizontal cards: fit within the viewport with a peek of the next */
+    #archiveScroll > a { width: 78vw; max-width: 300px; }
+}
+
+/* Very small phones: 360px and below */
+@media (max-width: 360px) {
+    .font-indian.text-4xl,
+    .font-indian.text-5xl { font-size: 1.7rem; }
+    .font-marathi.text-5xl { font-size: 1.6rem; }
+    h1.text-5xl { font-size: 2rem; }
+}
