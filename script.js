@@ -244,7 +244,7 @@ ${message || 'None'}
 गणपती बाप्पा मोरया 🚩`;
 
     const encodedText = encodeURIComponent(whatsappText);
-    const targetNumber = "917666641973";
+    const targetNumber = "919766641973";
     
     window.open(`https://wa.me/${targetNumber}?text=${encodedText}`, '_blank');
 }
