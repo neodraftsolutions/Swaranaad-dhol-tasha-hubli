@@ -64,6 +64,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // Play videos while they're visible on screen, pause them once scrolled away
     initScrollAutoplayVideos();
 
+    // Looping cross-fade slideshows (e.g. THE FORMATION)
+    initSlideshows();
+
+    // Full-screen preview for images marked with .lightbox-trigger (e.g. the group photo)
+    initImageLightbox();
+
     // Performance Archive horizontal scroll controls
     const archiveScroll = document.getElementById('archiveScroll');
     if (archiveScroll) {
@@ -151,6 +157,53 @@ function initScrollAutoplayVideos(videos) {
 
     targets.forEach((video) => observer.observe(video));
     return observer;
+}
+
+// Auto-cycling cross-fade slideshows. Any container with class "formation-slideshow"
+// (or another container class passed in) cycles its ".slideshow-slide" children in a loop.
+function initSlideshows(containerSelector = '.formation-slideshow', intervalMs = 3000) {
+    document.querySelectorAll(containerSelector).forEach((container) => {
+        const slides = container.querySelectorAll('.slideshow-slide');
+        if (slides.length < 2) return;
+
+        let current = 0;
+        setInterval(() => {
+            slides[current].classList.remove('opacity-100');
+            slides[current].classList.add('opacity-0');
+            current = (current + 1) % slides.length;
+            slides[current].classList.remove('opacity-0');
+            slides[current].classList.add('opacity-100');
+        }, intervalMs);
+    });
+}
+
+// Full-screen preview lightbox for standalone images (e.g. the Pathak group photo).
+// Any <img class="lightbox-trigger"> opens itself in the shared #imgLightbox overlay.
+function initImageLightbox() {
+    const triggers = document.querySelectorAll('.lightbox-trigger');
+    const lightbox = document.getElementById('imgLightbox');
+    const lightboxImg = document.getElementById('imgLightboxImg');
+    const closeBtn = document.getElementById('imgLightboxClose');
+    if (!triggers.length || !lightbox || !lightboxImg) return;
+
+    function open(img) {
+        lightboxImg.src = img.currentSrc || img.src;
+        lightboxImg.alt = img.alt || '';
+        lightbox.classList.remove('hidden');
+        lightbox.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function close() {
+        lightbox.classList.add('hidden');
+        lightbox.classList.remove('flex');
+        document.body.style.overflow = '';
+    }
+
+    triggers.forEach((img) => img.addEventListener('click', () => open(img)));
+    closeBtn.addEventListener('click', close);
+    lightbox.addEventListener('click', (e) => { if (e.target === lightbox) close(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
 }
 
 // WhatsApp Booking Generation

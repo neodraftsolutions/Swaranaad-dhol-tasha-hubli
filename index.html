@@ -58,6 +58,14 @@
         <i class="fab fa-whatsapp text-3xl"></i>
     </a>
 
+    <!-- Image Lightbox (full preview for clickable images like the group photo) -->
+    <div id="imgLightbox" class="fixed inset-0 bg-black/95 z-[100] hidden items-center justify-center p-4">
+        <button id="imgLightboxClose" type="button" aria-label="Close preview" class="absolute top-6 right-6 w-12 h-12 bg-gray-800 rounded-full text-white text-2xl hover:bg-saffron transition-colors z-50 shadow-lg">
+            <i class="fas fa-times"></i>
+        </button>
+        <img id="imgLightboxImg" src="" alt="" class="max-w-full max-h-full object-contain rounded cursor-zoom-out">
+    </div>
+
     <!-- Navigation -->
     <nav id="navbar" class="fixed w-full z-40 transition-all duration-300 py-4 px-6 md:px-12">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
@@ -218,19 +226,16 @@
                         <h3 class="text-2xl font-indian text-white mb-2">THE FORMATION</h3>
                         <p class="text-gray-400">Dhol and Tasha players come together, standing shoulder to shoulder in strict discipline.</p>
                     </div>
-                    <div class="relative">
-                        <div class="placeholder-bg rounded w-full h-48 flex items-center justify-center border border-gray-700">
-                            <span class="text-gray-500 text-sm font-bold uppercase">Image Placeholder</span>
-                        </div>
+                    <div class="relative w-full h-48 rounded overflow-hidden border border-gray-700 shadow-lg formation-slideshow">
+                        <img src="f1.jpeg" alt="The Formation" class="slideshow-slide absolute inset-0 w-full h-full object-cover opacity-100 transition-opacity duration-1000" onerror="this.remove()">
+                        <img src="f2.jpeg" alt="The Formation" class="slideshow-slide absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000" onerror="this.remove()">
                     </div>
                 </div>
 
                 <!-- Story Sequence Item 4 -->
                 <div class="md:grid md:grid-cols-2 gap-8 items-center relative pl-8 md:pl-0" data-aos="fade-up-left" data-aos-duration="1500">
                     <div class="relative order-2 md:order-1 mt-4 md:mt-0">
-                        <div class="placeholder-bg rounded w-full h-48 flex items-center justify-center border border-gray-700">
-                            <i class="fas fa-drum text-5xl text-saffron/50"></i>
-                        </div>
+                        <video src="per.mp4" class="rounded w-full h-48 object-cover border border-gray-700 shadow-lg bg-black" controls muted loop playsinline preload="metadata" onerror="this.outerHTML='<div class=\'placeholder-bg rounded w-full h-48 flex items-center justify-center border border-gray-700\'><i class=\'fas fa-drum text-5xl text-saffron/50\'></i></div>'"></video>
                     </div>
                     <div class="order-1 md:order-2 md:pl-12">
                         <h3 class="text-3xl font-indian text-white mb-2">THE BEAT</h3>
@@ -332,7 +337,7 @@
 
             <div class="relative group mt-12 max-w-5xl mx-auto" data-aos="zoom-in-up" data-aos-duration="1500">
                 <div class="absolute -inset-2 bg-gradient-to-r from-saffron to-maroon rounded blur opacity-20 group-hover:opacity-50 transition duration-1000"></div>
-                <img src="group.jpeg" alt="The Swaranaad Pathak team" class="relative w-full max-h-[600px] object-cover rounded-2xl border border-gray-800 shadow-2xl" onerror="this.outerHTML='<div class=\'placeholder-bg relative w-full h-96 rounded-2xl flex items-center justify-center border border-gray-800\'><span class=\'text-gray-500 uppercase tracking-widest font-bold\'>Group Photo Missing</span></div>'">
+                <img src="group.jpeg" alt="The Swaranaad Pathak team" class="lightbox-trigger relative w-full max-h-[600px] object-cover rounded-2xl border border-gray-800 shadow-2xl cursor-zoom-in" onerror="this.outerHTML='<div class=\'placeholder-bg relative w-full h-96 rounded-2xl flex items-center justify-center border border-gray-800\'><span class=\'text-gray-500 uppercase tracking-widest font-bold\'>Group Photo Missing</span></div>'">
                 <p class="text-center text-saffron text-sm uppercase tracking-widest font-bold mt-4">The Swaranaad Family</p>
             </div>
         </div>
@@ -549,8 +554,8 @@
                     </div>
 
                     <div class="pt-4">
-                        <button type="button" onclick="generateWhatsAppMsg()" class="w-full bg-saffron hover:bg-deep-orange text-white font-bold uppercase tracking-widest py-5 rounded-xl transition-colors flex items-center justify-center gap-3 shadow-[0_0_20px_rgba(255,103,31,0.5)] text-lg">
-                            <i class="fab fa-whatsapp text-2xl"></i> Send Booking Enquiry on WhatsApp
+                        <button type="button" onclick="generateWhatsAppMsg()" class="w-full bg-saffron hover:bg-deep-orange text-white font-bold uppercase tracking-tight sm:tracking-widest py-4 sm:py-5 px-4 rounded-xl transition-colors flex items-center justify-center text-center gap-2 sm:gap-3 shadow-[0_0_20px_rgba(255,103,31,0.5)] text-sm sm:text-lg leading-snug">
+                            <i class="fab fa-whatsapp text-xl sm:text-2xl shrink-0"></i> <span>Send Booking Enquiry on WhatsApp</span>
                         </button>
                     </div>
                 </form>
